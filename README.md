@@ -6,7 +6,7 @@ This project is a web scraping application that uses Selenium and ProxyMesh to f
 ## Setup Instructions
 1. **Clone the repository:**
    ```
-   git clone <repository-url>
+   git clone git@github.com:Laxmikant2002/web-scraping-project.git
    cd web-scraping-project
    ```
 
