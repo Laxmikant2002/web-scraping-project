@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Topics Scraper</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Trending Topics Scraper</h1>
+        <h2 class="text-center">Click the button below to fetch the top 5 trending topics from Twitter</h2>
+        <form action="/scrape" method="POST" class="text-center">
+            <button type="submit" class="btn btn-primary">Scrape Data</button>
+        </form>
+
+        {% if trend %}
+        <div class="mt-4">
+            <h2>These are the most happening topics as of: {{ trend.date }}</h2>
+            <ol>
+                <li>{{ trend.nameoftrend1 }}</li>
+                <li>{{ trend.nameoftrend2 }}</li>
+                <li>{{ trend.nameoftrend3 }}</li>
+                <li>{{ trend.nameoftrend4 }}</li>
+                <li>{{ trend.nameoftrend5 }}</li>
+            </ol>
+            <h3>IP Address used for this query: {{ trend.ip_address }}</h3>
+            <h4>Here's a JSON extract of this record from the MongoDB database:</h4>
+            <pre>{{ trend | tojson(indent=4) }}</pre>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
